@@ -27,6 +27,7 @@ export interface Deal {
   affiliateUrl: string;
   isLoot: boolean;
   expiryDate: string;
+  createdAt: number;
 }
 
 export type SortOption = 'relevance' | 'priceLowToHigh' | 'priceHighToLow' | 'discount';

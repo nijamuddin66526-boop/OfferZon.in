@@ -1,5 +1,5 @@
 {
-  "name": "OfferZon.in - Deal Aggregator",
+  "name": "OfferZon",
   "description": "A modern, high-performance e-commerce deals and offers aggregator featuring real-time loot alerts, countdown timers, and AI-powered deal discovery.",
   "requestFramePermissions": [
     "camera"

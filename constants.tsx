@@ -13,7 +13,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.AMAZON,
     affiliateUrl: 'https://amazon.in',
     isLoot: true,
-    expiryDate: new Date(Date.now() + 86400000).toISOString()
+    expiryDate: new Date(Date.now() + 86400000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '2',
@@ -26,7 +28,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.FLIPKART,
     affiliateUrl: 'https://flipkart.com',
     isLoot: false,
-    expiryDate: new Date(Date.now() + 172800000).toISOString()
+    expiryDate: new Date(Date.now() + 172800000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '3',
@@ -39,7 +43,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.MYNTRA,
     affiliateUrl: 'https://myntra.com',
     isLoot: true,
-    expiryDate: new Date(Date.now() + 3600000).toISOString()
+    expiryDate: new Date(Date.now() + 3600000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '4',
@@ -52,7 +58,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.AMAZON,
     affiliateUrl: 'https://amazon.in',
     isLoot: false,
-    expiryDate: new Date(Date.now() + 259200000).toISOString()
+    expiryDate: new Date(Date.now() + 259200000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '5',
@@ -65,7 +73,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.AJIO,
     affiliateUrl: 'https://ajio.com',
     isLoot: true,
-    expiryDate: new Date(Date.now() + 43200000).toISOString()
+    expiryDate: new Date(Date.now() + 43200000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '6',
@@ -78,7 +88,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.AMAZON,
     affiliateUrl: 'https://amazon.in',
     isLoot: false,
-    expiryDate: new Date(Date.now() + 900000).toISOString()
+    expiryDate: new Date(Date.now() + 900000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '7',
@@ -91,7 +103,9 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.AMAZON,
     affiliateUrl: 'https://amazon.in',
     isLoot: false,
-    expiryDate: new Date(Date.now() + 604800000).toISOString()
+    expiryDate: new Date(Date.now() + 604800000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   },
   {
     id: '8',
@@ -104,6 +118,8 @@ export const MOCK_DEALS: Deal[] = [
     store: Store.RELIANCE_DIGITAL,
     affiliateUrl: 'https://reliancedigital.in',
     isLoot: false,
-    expiryDate: new Date(Date.now() + 500000000).toISOString()
+    expiryDate: new Date(Date.now() + 500000000).toISOString(),
+    // Added createdAt to fix missing property type error
+    createdAt: Date.now()
   }
 ];

@@ -4,14 +4,19 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 /**
- * Safely retrieves environment variables.
+ * Safely retrieves environment variables from process.env.
+ * Returns an empty string as a fallback to prevent crashes in Firebase initialization.
  */
-const getEnv = (key: string): string | undefined => {
+const getEnv = (key: string): string => {
   try {
-    // Check if process is defined to prevent ReferenceError in pure browser environments
-    return typeof process !== 'undefined' ? (process.env as any)[key] : undefined;
-  } catch {
-    return undefined;
+    // Check if process and process.env exist before accessing
+    if (typeof process !== 'undefined' && process.env) {
+      return (process.env as any)[key] || '';
+    }
+    return '';
+  } catch (error) {
+    console.warn(`Error reading environment variable ${key}:`, error);
+    return '';
   }
 };
 
@@ -24,7 +29,7 @@ const firebaseConfig = {
   appId: getEnv('NEXT_PUBLIC_FIREBASE_APP_ID')
 };
 
-// Check if we have the minimum requirements to initialize Firebase
+// Minimum required fields for Firebase to attempt initialization
 const isConfigValid = !!(firebaseConfig.apiKey && firebaseConfig.projectId);
 
 let auth: any = null;
@@ -35,12 +40,12 @@ if (isConfigValid) {
     const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
     auth = getAuth(app);
     db = getFirestore(app);
-    console.log("Firebase initialized successfully.");
+    console.log("Firebase initialized successfully with provided config.");
   } catch (error) {
-    console.error("Firebase initialization failed:", error);
+    console.error("Firebase initialization failed despite valid-looking config:", error);
   }
 } else {
-  console.warn("Firebase configuration is missing or incomplete. Using mock data mode.");
+  console.warn("Firebase configuration is incomplete (Missing API Key or Project ID). The app will operate in 'Offline/Mock' mode.");
 }
 
 export { auth, db };
